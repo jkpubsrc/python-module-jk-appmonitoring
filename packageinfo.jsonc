@@ -1,0 +1,62 @@
+{
+	"magic": {
+		"magic": "packageinfo",
+		"version": 2,
+	},
+	"meta": {
+		"name": "jk_appmonitoring",
+		"version": "0.2020.12.26",
+		"packageClass": "python-module",
+		"language": "python3",
+		"development_status": "alpha",
+		"license": "apache2",
+		"keywords": [
+			"..."
+		],
+		"description": "This Python module contains components for analyzing the use of system resources by processes. It covers two use cases: a) monitoring other processes and b) monitoring one's own process.",
+		"authors": [
+			{
+				"name": "Jürgen Knauth",
+				"email": "pubsrc@binary-overflow.de"
+			}
+		],
+	},
+	"requirements": {
+		"python_packages": [
+		],
+		"python_packages_dev": [
+		],
+		"system_apt_packages": [
+		],
+	},
+	"source": {
+		"packages": [
+			"jk_appmonitoring"
+		],
+		"extra_data_files": [
+		],
+		"extra_binary_files": [
+		]
+	},
+	"documentation": [
+		/*
+		"wiki": {
+			"page": "DevDocs:jk_appmonitoring"
+		}
+		*/
+	],
+	"repositories": [
+		{
+			"type": "github",
+			"user": "jkpubsrc",
+			"project": "........",
+			"devon_publish": false
+		},
+		{
+			"type": "pypi",
+			"project": "........",
+			"devon_publish": false
+		}
+	],
+}
+
