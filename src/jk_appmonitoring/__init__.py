@@ -1,7 +1,7 @@
 ﻿
 
 
-__version__ = "0.2020.12.26"
+__version__ = "0.2020.12.27"
 
 
 
@@ -18,5 +18,4 @@ from .RFileSystem import RFileSystem
 from .RFileSystemCollection import RFileSystemCollection
 
 #from .AppCPUInfo import AppCPUInfo
-
 

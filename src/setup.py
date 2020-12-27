@@ -22,19 +22,19 @@ setup(
 		"Development Status :: 3 - Alpha",
 		"Programming Language :: Python :: 3",
 	],
-	description = "Components for applications to provide information about own use of system resources.",
+	description = "This Python module contains components for analyzing the use of system resources by processes. It covers two use cases: a) monitoring other processes and b) monitoring one's own process.",
 	include_package_data = False,
 	install_requires = [
 	],
 	keywords = [
 		"...",
 	],
-	license = "proprietary",
+	license = "apache2",
 	name = "jk_appmonitoring",
 	packages = [
 		"jk_appmonitoring",
 	],
-	version = "0.2020.12.26",
+	version = "0.2020.12.27",
 	zip_safe = False,
 	long_description = readme(),
 	long_description_content_type="text/markdown",
