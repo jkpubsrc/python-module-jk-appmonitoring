@@ -20,6 +20,7 @@ setup(
 	author_email = "pubsrc@binary-overflow.de",
 	classifiers = [
 		"Development Status :: 3 - Alpha",
+		"License :: OSI Approved :: Apache Software License",
 		"Programming Language :: Python :: 3",
 	],
 	description = "This Python module contains components for analyzing the use of system resources by processes. It covers two use cases: a) monitoring other processes and b) monitoring one's own process.",
@@ -29,7 +30,7 @@ setup(
 	keywords = [
 		"...",
 	],
-	license = "apache2",
+	license = "Apache2",
 	name = "jk_appmonitoring",
 	packages = [
 		"jk_appmonitoring",
