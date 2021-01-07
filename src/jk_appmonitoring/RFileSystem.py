@@ -68,10 +68,39 @@ class RFileSystem(jk_prettyprintobj.DumpMixin):
 	#
 
 	@property
-	def fsSizeTotal(self) -> int:
+	def fsSizeTotal(self) -> typing.Union[int,None]:
 		if self.__fsSizeTotal < 0:
-			self.update()
+			return None
 		return self.__fsSizeTotal
+	#
+
+	@property
+	def fsSizeUsed(self) -> typing.Union[int,None]:
+		if self.__fsSizeTotal < 0:
+			return None
+		ret = 0
+		for u in self.__diskSpaceUsages:
+			if u.partType not in [ "free", "reserved" ]:
+				ret += u.diskSpaceUsed
+		return ret
+	#
+
+	@property
+	def fsSizeUsedPercent(self) -> typing.Union[float,None]:
+		if self.__fsSizeTotal < 0:
+			return None
+
+		nUsed = self.fsSizeUsed
+		return nUsed / self.__fsSizeTotal * 100
+	#
+
+	@property
+	def fsSizeUsedFraction(self) -> typing.Union[float,None]:
+		if self.__fsSizeTotal < 0:
+			return None
+
+		nUsed = self.fsSizeUsed
+		return nUsed / self.__fsSizeTotal
 	#
 
 	@property
@@ -79,6 +108,11 @@ class RFileSystem(jk_prettyprintobj.DumpMixin):
 		if self.__fsSizeTotal < 0:
 			return None
 		return self.__diskSpaceUsages
+	#
+
+	@property
+	def hasData(self) -> bool:
+		return (self.fsSizeTotal > 0) and bool(self.__diskSpaceUsages)
 	#
 
 	################################################################################################################################
@@ -133,7 +167,7 @@ class RFileSystem(jk_prettyprintobj.DumpMixin):
 
 		for directory, u in temp:
 			diskSpaceUsages.append(
-				RDiskSpacePart(directory.name, directory.dirPath, u, fsSizeTotal)
+				RDiskSpacePart(directory.name, directory.dirPath, u, fsSizeTotal, "usedDir")
 			)
 			n -= u
 
@@ -145,17 +179,15 @@ class RFileSystem(jk_prettyprintobj.DumpMixin):
 		fsFreeUser = statvfs.f_frsize * statvfs.f_bavail		# Number of free bytes that ordinary users are allowed to use (excl. reserved space)
 		fsReservedRoot = _fsFreeSystem - fsFreeUser
 
-		diskSpaceUsages.append(
-			RDiskSpacePart("Reserved", None, fsReservedRoot, fsSizeTotal)
-		)
+		diskSpacePart_reserved = RDiskSpacePart("Reserved", None, fsReservedRoot, fsSizeTotal, "reserved")
 		n -= fsReservedRoot
-
-		diskSpaceUsages.append(
-			RDiskSpacePart("Free", None, fsFreeUser, fsSizeTotal)
-		)
+		diskSpacePart_free = RDiskSpacePart("Free", None, fsFreeUser, fsSizeTotal, "free")
 		n -= fsFreeUser
 
-		diskSpaceUsages[0] = RDiskSpacePart("Other", None, n, fsSizeTotal)
+		diskSpaceUsages[0] = RDiskSpacePart("Other", None, n, fsSizeTotal, "usedOther")
+
+		diskSpaceUsages.append(diskSpacePart_free)
+		diskSpaceUsages.append(diskSpacePart_reserved)
 
 		# ----
 

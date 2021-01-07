@@ -31,9 +31,20 @@ class RFileSystemCollection(jk_prettyprintobj.DumpMixin):
 	################################################################################################################################
 
 	@property
-	def fileSystems(self) -> tuple:
+	def filesystems(self) -> tuple:
 		ret = sorted(self.__fileSystems.values(), key=lambda x: x.mountPoint)
 		return tuple(ret)
+	#
+
+	@property
+	def hasData(self) -> bool:
+		if self.__fileSystems:
+			for fs in self.__fileSystems:
+				if not fs.hasData:
+					return False
+			return True
+		else:
+			return False
 	#
 
 	################################################################################################################################
@@ -42,7 +53,7 @@ class RFileSystemCollection(jk_prettyprintobj.DumpMixin):
 
 	def _dumpVarNames(self) -> list:
 		return [
-			"fileSystems",
+			"filesystems",
 		]
 	#
 
@@ -65,6 +76,10 @@ class RFileSystemCollection(jk_prettyprintobj.DumpMixin):
 	@jk_typing.checkFunctionSignature()
 	def registerFileSystem(self, fs:RFileSystem):
 		self.__fileSystems[fs.mountPoint] = fs
+	#
+
+	def hasMountPoint(self, mountPoint:str):
+		return mountPoint in self.__fileSystems
 	#
 
 	def update(self):

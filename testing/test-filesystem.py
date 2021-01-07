@@ -30,10 +30,10 @@ fsCol.dump()
 
 
 
-for fs in fsCol.fileSystems:
+for fs in fsCol.filesystems:
 	print(fs.name)
 	for part in fs.usages:
-		print("\t" + part.name + "\t" + str(part.percentageOfTotal))
+		print("\t" + part.name + "\t" + str(part.diskSpaceUsedPercent))
 
 
 

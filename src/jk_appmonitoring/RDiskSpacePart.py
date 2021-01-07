@@ -21,16 +21,31 @@ class RDiskSpacePart(jk_prettyprintobj.DumpMixin):
 	################################################################################################################################
 
 	@jk_typing.checkFunctionSignature()
-	def __init__(self, name:str, dirPath:typing.Union[str,None], diskSpaceUsed:int, fsSizeTotal:int):
+	def __init__(self, name:str, dirPath:typing.Union[str,None], diskSpaceUsed:int, fsSizeTotal:int, partType:str):
 		self.__name = name
 		self.__dirPath = dirPath
 		self.__nDiskSpaceUsed = diskSpaceUsed
 		self.__nSizeTotal = fsSizeTotal
+		self.__partType = partType
 	#
 
 	################################################################################################################################
 	## Public Properties
 	################################################################################################################################
+
+	#
+	# The type of this disk usage part
+	#
+	# @return	str		Returns the type of this part:
+	#					* "free" if this reflects free disk space
+	#					* "reserved" if this reflects disk space reserved for root
+	#					* "usedDir" if this reflects disk space used based on specified directory trees
+	#					* "usedOther" if this reflects disk space used by other files
+	#
+	@property
+	def partType(self) -> str:
+		return self.__partType
+	#
 
 	@property
 	def name(self) -> str:
@@ -48,12 +63,12 @@ class RDiskSpacePart(jk_prettyprintobj.DumpMixin):
 	#
 
 	@property
-	def percentageOfTotal(self) -> float:
+	def diskSpaceUsedPercent(self) -> float:
 		return self.__nDiskSpaceUsed / self.__nSizeTotal * 100
 	#
 
 	@property
-	def fragmentOfTotal(self) -> float:
+	def diskSpaceUsedFraction(self) -> float:
 		return self.__nDiskSpaceUsed / self.__nSizeTotal
 	#
 
@@ -71,9 +86,10 @@ class RDiskSpacePart(jk_prettyprintobj.DumpMixin):
 	def _dumpVarNames(self) -> list:
 		return [
 			"name",
+			"partType",
 			"dirPath",
 			"diskSpaceUsed",
-			"percentageOfTotal",
+			"diskSpaceUsedPercent",
 			"fsSizeTotal",
 		]
 	#

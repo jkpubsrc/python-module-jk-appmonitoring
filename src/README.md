@@ -108,7 +108,7 @@ So the procedure is as follows:
 * register all file systems `RFileSystemCollection` should check later, then
 * register instances of `RDirectory` that represent a set of directories used by your application.
 * Then invoke `update()` to retrieve more or less recent data (by respecting configurations for `RDirectory` to cache values for some time), and
-* then retrieve the data from the `RFileSystem` objects via property `fileSystems` from the `RFileSystemCollection`.
+* then retrieve the data from the `RFileSystem` objects via property `filesystems` from the `RFileSystemCollection`.
 
 Here is a code example:
 
@@ -131,10 +131,10 @@ The `RFileSystem` objects will now have generated disk usage information. You ca
 Here is a simple example how to do that:
 
 ```python
-for fs in fsCol.fileSystems:
+for fs in fsCol.filesystems:
 	print(fs.name)
 	for part in fs.usages:
-		print("\t" + part.name + "\t" + str(part.percentageOfTotal))
+		print("\t" + part.name + "\t" + str(part.diskSpaceUsedPercent))
 ```
 
 
