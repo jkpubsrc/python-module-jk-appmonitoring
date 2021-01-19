@@ -30,7 +30,7 @@ class RFileSystem(jk_prettyprintobj.DumpMixin):
 	# @param		str name			A human readable, descriptive name for this file system.
 	# @param		str mountPoint		The mout point of this file system.
 	# @param		bool bWeakDirRefs	If <c>True</c> manage all directories as weak references (= default). That means: Registered directory objects
-	#									that are dropped by some system component seize to exist and are then no longer considered automatically.
+	#									that are dropped by some system component cease to exist and are then no longer considered automatically.
 	#
 	@jk_typing.checkFunctionSignature()
 	def __init__(self, name:str, mountPoint:str, devicePath:str = None, bWeakDirRefs:bool = True):
