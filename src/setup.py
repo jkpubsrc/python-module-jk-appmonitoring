@@ -35,7 +35,7 @@ setup(
 	packages = [
 		"jk_appmonitoring",
 	],
-	version = "0.2021.1.7",
+	version = "0.2021.1.19",
 	zip_safe = False,
 	long_description = readme(),
 	long_description_content_type="text/markdown",
