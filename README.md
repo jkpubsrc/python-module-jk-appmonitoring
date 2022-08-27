@@ -8,7 +8,7 @@ This Python module contains components for analyzing the use of system resources
 
 Information about this module can be found here:
 
-* [github.org](https://github.com/jkpubsrc/python-module-jk-appmonitoring)
+* [github.com](https://github.com/jkpubsrc/python-module-jk-appmonitoring)
 * [pypi.python.org](https://pypi.python.org/pypi/jk-appmonitoring)
 
 Why this module?
