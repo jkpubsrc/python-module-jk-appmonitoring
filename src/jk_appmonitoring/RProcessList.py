@@ -3,7 +3,6 @@
 
 import jk_sysinfo
 import jk_prettyprintobj
-import jk_utils
 
 from .RProcess import RProcess
 from .RProcessFilter import RProcessFilter

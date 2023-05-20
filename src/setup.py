@@ -24,19 +24,29 @@ setup(
 		"Programming Language :: Python :: 3",
 	],
 	description = "This Python module contains components for analyzing the use of system resources by processes. It covers two use cases: a) monitoring other processes and b) monitoring one's own process.",
-	include_package_data = False,
+	include_package_data = True,
 	install_requires = [
+		"jk_appmonitoring",
 	],
 	keywords = [
 		"...",
 	],
 	license = "Apache2",
 	name = "jk_appmonitoring",
+	package_data = {
+		"": [
+		],
+	},
 	packages = [
-		"jk_appmonitoring",
+		"jk_sysinfo",
+		"jk_cmdoutputparsinghelper",
+		"jk_prettyprintobj",
+		"jk_utils",
 	],
-	version = "0.2021.1.19",
+	scripts = [
+	],
+	version = '0.2023.5.20',
 	zip_safe = False,
 	long_description = readme(),
-	long_description_content_type="text/markdown",
+	long_description_content_type = "text/markdown",
 )

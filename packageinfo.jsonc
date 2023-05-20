@@ -1,62 +1,43 @@
 {
 	"magic": {
 		"magic": "packageinfo",
-		"version": 2,
+		"version": 2
 	},
 	"meta": {
-		"name": "jk_appmonitoring",
-		"version": "0.2021.1.19",
-		"packageClass": "python-module",
-		"language": "python3",
+		"authors": [
+			{
+				"email": "pubsrc@binary-overflow.de",
+				"name": "J\u00fcrgen Knauth"
+			}
+		],
+		"description": "This Python module contains components for analyzing the use of system resources by processes. It covers two use cases: a) monitoring other processes and b) monitoring one's own process.",
 		"development_status": "alpha",
-		"license": "Apache2",
 		"keywords": [
 			"..."
 		],
-		"description": "This Python module contains components for analyzing the use of system resources by processes. It covers two use cases: a) monitoring other processes and b) monitoring one's own process.",
-		"authors": [
-			{
-				"name": "Jürgen Knauth",
-				"email": "pubsrc@binary-overflow.de"
-			}
-		],
+		"language": "python3",
+		"license": "Apache2",
+		"name": "jk_appmonitoring",
+		"packageClass": "python-module",
+		"version": "0.2023.5.20"
 	},
 	"requirements": {
+		"htmlcssjs_packages": [],
 		"python_packages": [
-		],
-		"python_packages_dev": [
-		],
-		"system_apt_packages": [
-		],
-	},
-	"source": {
-		"packages": [
 			"jk_appmonitoring"
 		],
-		"extra_data_files": [
-		],
-		"extra_binary_files": [
-		]
+		"python_packages_dev": [],
+		"python_packages_recommended": [],
+		"system_apt_packages": []
 	},
-	"documentation": [
-		/*
-		"wiki": {
-			"page": "DevDocs:jk_appmonitoring"
-		}
-		*/
-	],
-	"repositories": [
-		{
-			"type": "github",
-			"user": "jkpubsrc",
-			"project": "........",
-			"devon_publish": false
-		},
-		{
-			"type": "pypi",
-			"project": "........",
-			"devon_publish": false
-		}
-	],
+	"source": {
+		"extra_binary_files": [],
+		"extra_data_files": [],
+		"packages": [
+			"jk_sysinfo",
+			"jk_cmdoutputparsinghelper",
+			"jk_prettyprintobj",
+			"jk_utils"
+		]
+	}
 }
-

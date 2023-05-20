@@ -6,8 +6,6 @@ import resource
 
 import jk_sysinfo
 import jk_cmdoutputparsinghelper
-import jk_json
-import jk_utils
 
 
 
